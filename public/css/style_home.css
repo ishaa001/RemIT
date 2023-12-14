@@ -1,0 +1,354 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+header {
+  background-color: rgb(12, 12, 156);
+  height: 45px;
+  display: flex;
+}
+
+.menu-icon {
+  font-size: 20px;
+  margin: 6px;
+  margin-left: 20px;
+  color: gainsboro;
+  padding: 5px;
+}
+
+.menu-icon:hover {
+  background-color: rgba(255, 255, 255, 0.445);
+}
+
+.home-icon {
+  font-size: 20px;
+  margin: 6px;
+  margin-left: 3px;
+  color: gainsboro;
+  padding: 5px;
+}
+
+.home-icon:hover {
+  background-color: rgba(255, 255, 255, 0.445);
+}
+
+.search-form {
+  margin-top: 7px;
+}
+
+.search-bar {
+  padding: 5px;
+  padding-left: 25px;
+  background: rgba(255, 255, 255, 0.459);
+  /* color: white; */
+  border-radius: 5px;
+}
+
+.search-bar::placeholder {
+  color: white;
+}
+
+.search-icon {
+  position: absolute;
+  padding: 7px;
+  color: white;
+}
+
+.search-form:hover > .search-icon {
+  color: black;
+}
+
+.search-form:hover > .search-bar::placeholder {
+  color: black;
+}
+
+.search-bar:hover {
+  background: white;
+}
+
+.search-bar:focus {
+  width: 300px;
+  background: white;
+}
+
+.search-bar:focus::placeholder {
+  color: black;
+}
+
+#nav-bar {
+  /* background-color: black; */
+  padding: 0px;
+  margin: 0px;
+  width: 18%;
+  height: 680px;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  left: 0px;
+  background-color: rgb(246, 247, 255);
+}
+
+.nav-bar2 {
+  margin-right: 5px;
+  margin-left: -25px;
+}
+.list {
+  margin: 25px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  background-color: rgb(246, 247, 255);
+}
+
+.list-item {
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  padding-top: 15px;
+  background-color: rgb(246, 247, 255);
+
+  /* display: table;
+  vertical-align: middle; */
+}
+
+.list-item:hover {
+  background-color: rgba(191, 226, 247, 0.85);
+  border-radius: 10px;
+}
+
+.labels {
+  height: 40px;
+  width: 190px;
+  margin: 10px 0px 10px 0px;
+  border: none;
+  text-align: center;
+  /* background-color: white; */
+  background-color: rgb(246, 247, 255);
+  cursor: pointer;
+  /* margin-left: 40px; */
+}
+
+.label:hover > .add {
+  color: red;
+}
+
+.add {
+  /* padding: 1px 1px 1px 1px; */
+  font-size: 20px;
+  margin-left: 50px;
+  cursor: pointer;
+
+  /* padding-bottom:10px; */
+}
+
+.add:hover {
+  background-color: rgba(204, 204, 204, 0.767);
+}
+
+#add0 {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0px 6px 2px 6px;
+  margin-top: 7px;
+  height: 30px;
+  border-radius: 5px;
+  /* font-size: 20px; */
+  margin-left: 85%;
+  cursor: pointer;
+  color: white;
+}
+
+#pomo-fav {
+  color: #000;
+}
+
+.pomo-icon {
+  padding: 2px 6px 2px 6px;
+  margin-top: 4px;
+  height: 35px;
+  font-size: 25px;
+  margin-left: 61%;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+}
+
+.pomo-icon:hover {
+  background-color: rgba(255, 255, 255, 0.479);
+}
+
+#prof-fav {
+  color: #000;
+}
+
+.profile {
+  padding: 2px 6px 2px 6px;
+  margin-top: 4px;
+  height: 35px;
+  font-size: 25px;
+  margin-left: 3%;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+}
+
+.profile:hover {
+  background-color: rgba(255, 255, 255, 0.473);
+}
+
+.dropdown {
+  position: relative;
+  left: -28px;
+  color: black;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.label-text {
+  margin-top: 3px;
+  font-weight: 700;
+  font-size: 15px;
+  position: absolute;
+}
+
+.card {
+  position: absolute;
+  left: 40%;
+  top: 25%;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: auto;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  background-color: white;
+}
+
+.card-header {
+  height: 40px;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.card-body {
+  min-height: 120px;
+}
+
+.add-project-label {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.add-project-input {
+  width: 300px;
+  height: 25px;
+  border-radius: 5px;
+  margin: 10px;
+  margin-left: 20px;
+}
+
+.card-footer {
+  margin-top: 30px;
+  border-top: 1px solid gray;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 35px;
+}
+
+.add-project-button {
+  border-radius: 5px;
+  font-size: 15px;
+  margin-right: 10px;
+  font-weight: 700;
+  padding: 8px 15px 8px 15px;
+  border: 0.5px solid rgb(219, 214, 214);
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: rgb(219, 214, 214);
+  transition: border 1s ease;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  border: 0.5px solid black;
+  transition: border 1s ease;
+}
+
+.add-button {
+  background-color: rgb(21, 42, 158);
+  color: white;
+  opacity: 0.5;
+}
+
+.body1 > *:not(.card) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+}
+
+/* new css */
+.main {
+  height: 300px;
+  width: 300px;
+  /* border: 1px solid black; */
+  position: absolute;
+  top: 80px;
+  left: 350px;
+}
+.projects {
+  list-style-type: none;
+  position: relative;
+  left: 70px;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+  /* top:300px; */
+}
+
+.projects li {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px;
+  padding-left: 20px;
+  width: 150px;
+  /* text-align: center; */
+  margin-left: 20px;
+  border-radius: 10px;
+  visibility: hidden;
+  position: absolute;
+}
+
+.projects li:hover {
+  background-color: rgba(0, 0, 0, 0.315);
+}
+
+.task-add {
+  position: absolute;
+  right: 35px;
+}
+
+.task-delete {
+  position: absolute;
+  right: 5px;
+}
+
+#today,
+#upcoming,
+#completed,
+#inbox,
+#Gen {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>RemIt</title>
+  <link rel="stylesheet" href="../../css/style_pomodoro.css">
+  <link rel="shortcut icon" href="images/RemItT-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main ng-app="PomodoroApp" ng-controller="MainCtrl">
+  <header>
+    <div class="session">
+      <div class="breakCtrl">
+        <p>break length</p>
+        <button class="minus" ng-click="breakLengthChange(-1)">-</button><span class="time">{{breakLength}}</span>
+        <button class="plus" ng-click="breakLengthChange(1)">+</button>
+      </div>
+      <div class="sessionCtrl">
+        <p>session length</p>
+        <button class="minus" ng-click="sessionLengthChange(-1)">-</button><span class="time">{{sessionLength}}</span>
+        <button class="plus" ng-click="sessionLengthChange(1)">+</button>
+      </div>
+    </div>
+  </header>
+  <section ng-click="toggleTimer()">
+    <div class="timer">
+      <p class="title">{{sessionName}}</p>
+      <p>{{timeLeft}}</p><span class="fill" ng-style="{'height':fillHeight, 'background':fillColor }"></span>
+    </div>
+  </section>
+</main>
+<!-- partial -->
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+  <script  src="../../js/script_pomodoro.js"></script>
+
+</body>
+</html>

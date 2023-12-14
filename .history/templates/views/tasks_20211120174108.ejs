@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<h1>Tasks</h1>
+
+<% for(var i=0;i<projects.length;i++) {%>
+    <div id="project-list">
+        <ul class="projects">
+            <li class="project-item">
+                <%= tasks[i].taskname %>
+            </li>
+            <li class="project-item">
+                <%= tasks[i].projname %>
+            </li>
+            <li class="project-item">
+                <%= tasks[i].taskDate %>
+            </li>
+            <li class="project-item">
+                <%= tasks[i].taskname %>
+            </li>
+        </ul>
+    </div>
+
+    <%}%>

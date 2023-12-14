@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="/css/style_task.css" />
+    <title>Document</title>
+  </head>
+  <body >
+    <h1><%= proj_name %>  
+    <a href="" class="add" id="add" style="text-align: right;text-decoration: none;color: black; display: block;top: -5%;"><i class="fa fa-user-plus"></i></a></h1>
+    <% project_tasks.forEach(function(proj_task){ if(proj_task.status == "Pending") {var curD=new Date(); var daysRemain =
+      proj_task.taskDate.getDate() - curD.getDate() %>
+    <form action="/completed_tasks"  method="post">
+    <div class="item">
+      <div class="round">
+        <input
+          type="checkbox"
+          name="checkbox"
+          value="<%=proj_task._id %>"
+          id="<%=proj_task._id %>"
+          onchange="this.form.submit()"
+        />
+        <label for="<%=proj_task._id %>"></label>
+      </div>
+      <p id="check-me">
+        <%= proj_task.taskname %> 
+        <div id="circle-blue"></div>
+        <p id="t"><%= proj_task.projname %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <% if(proj_task.priority=='low'){ %>
+            <div id="circle-yellow"></div>
+            <% } %>
+          <% if(proj_task.priority=='mid'){ %>
+              <div id="circle-green"></div>
+              <% } %>
+              <% if(proj_task.priority=='high'){ %>
+                <div id="circle-red"></div>
+                <% } %>
+        <p id="pl"><%= proj_task.priority %> &nbsp;&nbsp;&nbsp;&nbsp;
+          <p id="di">  <%= proj_task.taskDate.toDateString() %> &nbsp;&nbsp;&nbsp;&nbsp; 
+          <p id="rd">  <% if (daysRemain > 0) { %> <%= daysRemain %>
+        Days Remaining <%} else { %> <%= -daysRemain %> Days Past <% } %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a
+          href="/del_tasks/<%= proj_task._id %>"
+          style="color: black"
+          ><i class="fa fa-trash add task-delete" onclick="return confirm('Are you sure you want to delete project?')"></i
+        ></a></p>
+        <br />
+      </p>
+    </div>
+  </form>
+    <% }})%>
+  </body>
+</html>

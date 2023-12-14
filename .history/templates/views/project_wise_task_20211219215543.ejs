@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="/css/style_task.css" />
+  
+
+  <title>Document</title>
+</head>
+
+<body id = "body" class="body">
+  <div id="overlay">
+  
+  <h1 class="project-header">
+    <%= proj_name %>
+  </h1>
+  <button class="add-collab"><span class="add" id="add4"><i class="fa fa-user-plus add-collab-icon"></i></span></button>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+      <% if(typeof project_tasks != 'undefined' && project_tasks) { %>
+      
+      <% } %>
+      <a href="#"><%= project_tasks.usr.username %></a>
+    </div>
+  </div>
+  
+
+  <% project_tasks.forEach(function(proj_task){ if(proj_task.status=="Pending" ) {var curD=new Date(); var
+    daysRemain=proj_task.taskDate.getDate() - curD.getDate() %>
+    <form action="/completed_tasks" method="post">
+      <div class="item">
+        <div class="round">
+          <input type="checkbox" name="checkbox" value="<%=proj_task._id %>" id="<%=proj_task._id %>"
+            onchange="this.form.submit()" />
+          <label for="<%=proj_task._id %>"></label>
+        </div>
+        <p id="check-me">
+          <%= proj_task.taskname %>
+            <div id="circle-blue"></div>
+            <p id="t">
+              <%= proj_task.projname %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% if(proj_task.priority=='low' ){ %>
+                  <div id="circle-yellow"></div>
+                  <% } %>
+                    <% if(proj_task.priority=='mid' ){ %>
+                      <div id="circle-green"></div>
+                      <% } %>
+                        <% if(proj_task.priority=='high' ){ %>
+                          <div id="circle-red"></div>
+                          <% } %>
+                            <p id="pl">
+                              <%= proj_task.priority %> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <p id="di">
+                                  <%= proj_task.taskDate.toDateString() %> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p id="rd">
+                                      <% if (daysRemain> 0) { %> <%= daysRemain %>
+                                          Days Remaining <%} else { %>
+                                            <%= -daysRemain %> Days Past <% } %>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/del_tasks/<%= proj_task._id %>"
+                                                  style="color: black; float: right; margin-right: 70px;"><i class="fa fa-trash add task-delete"
+                                                    onclick="return confirm('Are you sure you want to delete project?')"></i></a>
+                                    </p>
+                                    <br />
+                                </p>
+      </div>
+    </form>
+    <% }})%>
+  </div>
+  <div class="card" id="card4">
+    <div class="card-header">
+      Invite Members
+    </div>
+    <div class="card-body">
+      <form action="/invite_members" method="post">
+        <input type="hidden" name="name" value="<%= proj_name %>">
+        <label class="add-project-label">Email</label><br>
+        <input type="email" name="email" class="add-project-input input-name" id="input-name4"><br>
+    </div>
+    <div class="card-footer">
+      <button class="add-project-button cancel-button" type="reset" id="cancel-button4">Cancel</button>
+      <button type="submit" class="add-project-button add-button" id="add-button4" disabled>Invite</button>
+    </div>
+    </form>
+  </div>
+      <script src="../../js/script_collab.js"></script>
+</body>
+
+</html>

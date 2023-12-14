@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<h1>Tasks</h1>
+
+<% for(var i=0;i<projects.length;i++) {%>
+    <div id="project-list">
+        <ul class="projects">
+            <li class="project-item">
+                <%= projects[i].name %>
+                <span class="add task-add">+</span>
+                <a href="/api/del_projects/<%= projects[i]._id %>" style="color: black;"><i class="fa fa-trash add task-delete"></i></a>
+            </li>
+        </ul>
+    </div>
+
+    <%}%>

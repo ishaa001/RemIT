@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - RemIt</title>
+  <link rel="stylesheet" href="css/style_profile.css">
+
+</head>
+<body>
+<div class="pro-card">
+  <div class="img-container">
+    <div class="skewed">
+      <img src="<%= user." alt="">
+    </div>
+  </div>
+  <div class="content">
+    <h2><%= user.firstname %> <%= user.lastname %><br>
+   <center> <%= user.username %></center></h2>
+    <p><%= user.email %></p>
+    <button class="pro-button pro-button1">
+      <a href="/logout"><p>Logout</p></a>
+    </button>
+  </div>
+</div>
+</body>
+</html>

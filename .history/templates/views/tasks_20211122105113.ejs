@@ -1,0 +1,13 @@
+<%- include('./sidebars') %>
+<h1>Tasks</h1>
+
+<h1> 
+    <!-- <h1> <%= tasks[0].taskname %> </h1> -->
+<% for(var i=0;i<tasks.length;i++) { %>
+    <%= tasks[i].taskname %>&nbsp;&nbsp;&nbsp;<%= tasks[i].projname %>
+    &nbsp;&nbsp;&nbsp;<%= tasks[i].taskDate %>
+    &nbsp;&nbsp;&nbsp;<%= tasks[i].status %>
+    <br>
+
+    <% } %>
+</h1>

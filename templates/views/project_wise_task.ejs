@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="/css/style_projectcollab.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+
+<title>RemIt</title>
+<link rel="shortcut icon" href="images/RemItT-removebg-preview.png" type="image/x-icon">
+</head>
+
+<body id = "body" class="body">
+  <div id="overlay">
+  
+  <h1 class="project-header">
+    <%= proj_name %>
+  </h1>
+  <button class="add-collab" style=" margin-left: 700px; background-color: rgb(170, 168, 168); width: 40px; height: 40px; border-radius: 20px; border:none;"><span class="add" id="add4"><i class="fa fa-user-plus add-collab-icon" style="padding: 2px 2px;"></i></span></button>
+  <% if(typeof proj_users != 'undefined' && proj_users.length != 0) { %>
+    <div class="btn-group" style="margin-left: 900px; margin-top: -160px;">
+      <button type="button" class="btn" style="background-color: rgb(170, 168, 168); color: black;"><i class="fa fa-user fa-fw"></i> Users</button>
+      <button type="button" class="btn dropdown-toggle" style="background-color: rgb(170, 168, 168); color: black;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><% for(var i=0;i<proj_users.length;i++) { %>
+          <a href="#"><%= proj_users[i] %></a>
+        <% } %></li>
+      </ul>
+    </div>
+<% } %>
+  
+
+  <% project_tasks.forEach(function(proj_task){ if(proj_task.status=="Pending" ) {var curD=new Date(); var
+    daysRemain=proj_task.taskDate.getDate() - curD.getDate() %>
+    <form action="/completed_tasks" method="post">
+      <div class="item">
+        <div class="round">
+          <input type="checkbox" name="checkbox" value="<%=proj_task._id %>" id="<%=proj_task._id %>"
+            onchange="this.form.submit()" />
+          <label for="<%=proj_task._id %>"></label>
+        </div>
+        <p id="check-me">
+          <%= proj_task.taskname %>
+            <div id="circle-blue"></div>
+            <p id="t">
+              <%= proj_task.projname %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% if(proj_task.priority=='low' ){ %>
+                  <div id="circle-yellow"></div>
+                  <% } %>
+                    <% if(proj_task.priority=='mid' ){ %>
+                      <div id="circle-green"></div>
+                      <% } %>
+                        <% if(proj_task.priority=='high' ){ %>
+                          <div id="circle-red"></div>
+                          <% } %>
+                            <p id="pl">
+                              <%= proj_task.priority %> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <p id="di">
+                                  <%= proj_task.taskDate.toDateString() %> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p id="rd">
+                                      <% if (daysRemain> 0) { %> <%= daysRemain %>
+                                          Days Remaining <%} else { %>
+                                            <%= -daysRemain %> Days Past <% } %>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/del_tasks/<%= proj_task._id %>"
+                                                  style="color: black; float: right; margin-right: 70px;"><i class="fa fa-trash add task-delete"
+                                                    onclick="return confirm('Are you sure you want to delete project?')"></i></a>
+                                    </p>
+                                    <br />
+                                </p>
+      </div>
+    </form>
+    <% }})%>
+  </div>
+  <div class="card" id="card4">
+    <div class="card-header">
+      Invite Members
+    </div>
+    <div class="card-body">
+      <form action="/invite_members" method="post">
+        <input type="hidden" name="name" value="<%= proj_name %>">
+        <label class="add-project-label">Email</label><br>
+        <input type="email" name="email" class="add-project-input input-name" id="input-name4"><br>
+    </div>
+    <div class="card-footer">
+      <button class="add-project-button cancel-button" type="reset" id="cancel-button4">Cancel</button>
+      <button type="submit" class="add-project-button add-button" id="add-button4" disabled>Invite</button>
+    </div>
+    </form>
+  </div>
+      <script src="../../js/script_collab.js"></script>
+</body>
+
+</html>
